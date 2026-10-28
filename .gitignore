@@ -1,0 +1,7 @@
+node_modules
+dist
+shots
+/img
+*.mjs
+!vite.config.ts
+.DS_Store
