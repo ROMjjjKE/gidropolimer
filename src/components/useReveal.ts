@@ -29,7 +29,7 @@ export function useReveal(key: string) {
     let cancelled = false;
     let revert: (() => void) | null = null;
 
-    loadMotion().then(({ gsap, ScrollTrigger }) => {
+    const start = () => loadMotion().then(({ gsap, ScrollTrigger }) => {
       if (cancelled) return;
       const ctx = gsap.context(() => {
         nodes.forEach((el, i) => {
@@ -51,8 +51,12 @@ export function useReveal(key: string) {
       revert = () => ctx.revert();
     });
 
+    // не соревнуемся с первым экраном за главный поток
+    const idle = window.requestIdleCallback ? window.requestIdleCallback(start, { timeout: 1200 }) : window.setTimeout(start, 350);
+
     return () => {
       cancelled = true;
+      if (typeof idle === 'number') clearTimeout(idle);
       if (revert) revert();
     };
   }, [key]);

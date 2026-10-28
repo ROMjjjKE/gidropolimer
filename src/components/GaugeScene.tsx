@@ -166,7 +166,7 @@ export function GaugeScene() {
     let killed = false;
     let cleanup: (() => void) | null = null;
 
-    Promise.all([import('gsap'), import('gsap/ScrollTrigger')]).then(([{ default: gsap }, { ScrollTrigger }]) => {
+    const begin = () => Promise.all([import('gsap'), import('gsap/ScrollTrigger')]).then(([{ default: gsap }, { ScrollTrigger }]) => {
       if (killed || !stageRef.current) return;
       gsap.registerPlugin(ScrollTrigger);
       setMode('pin');
@@ -191,9 +191,23 @@ export function GaugeScene() {
       cleanup = () => trigger.kill();
     });
 
+    // Пин-логику поднимаем, только когда раздел подходит к экрану: не мешаем первому экрану.
+    let timer: number | undefined;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          io.disconnect();
+          timer = window.setTimeout(begin, 60);
+        }
+      },
+      { rootMargin: '320px 0px' }
+    );
+    if (stageRef.current) io.observe(stageRef.current);
 
     return () => {
       killed = true;
+      io.disconnect();
+      if (timer) clearTimeout(timer);
       if (cleanup) cleanup();
     };
   }, []);
