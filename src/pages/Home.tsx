@@ -5,19 +5,6 @@ import FitTest from '../components/FitTest';
 import LeadForm from '../components/LeadForm';
 import { useReveal } from '../components/useReveal';
 
-const JSONLD = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'ООО «Гидрополимер»',
-  description:
-    'Гидродинамическая прочистка ливневой канализации, трубопроводов и паркингов комбинированной каналопромывочной машиной высотой 2,3 м.',
-  telephone: '+375447427447',
-  url: 'https://romjjjke.github.io/gidropolimer/',
-  areaServed: ['Минск', 'Минский район', 'Минская область'],
-  address: { '@type': 'PostalAddress', addressCountry: 'BY', addressLocality: 'Минск' },
-  knowsAbout: ['гидродинамическая прочистка канализации', 'промывка ливневой канализации', 'прочистка трубопроводов'],
-};
-
 export default function Home() {
   useReveal('home');
   return (
@@ -27,7 +14,6 @@ export default function Home() {
         description="Гидродинамическая прочистка ливнёвки в закрытых паркингах, узких дворах и трубопроводов. Комбинированная машина высотой 2,3 м: промывка и откачка за один проезд. Минск и область, +375 44 742-74-47."
         path="/"
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSONLD) }} />
 
       {/* HERO */}
       <section className="hero">

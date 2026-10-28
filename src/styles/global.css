@@ -394,6 +394,7 @@ input, select, textarea { min-width: 0; max-width: 100%; }
 .ftr__grid { row-gap: 26px; }
 .ftr__col { grid-column: span 3; display: flex; flex-direction: column; gap: 8px; font-size: var(--fs-13); }
 .ftr__col--wide { grid-column: span 3; }
+.ftr a { display: inline-block; padding-block: 4px; }
 .ftr a:hover { color: var(--paper); }
 .ftr__name { font-family: var(--f-display); color: var(--paper); font-size: 1.0625rem; }
 .ftr__bottom {
