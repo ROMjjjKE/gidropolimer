@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import MachineDrawing from '../components/MachineDrawing';
-import FitTest from '../components/FitTest';
+import { GaugeScene } from '../components/GaugeScene';
 import LeadForm from '../components/LeadForm';
 import { useReveal } from '../components/useReveal';
+import SectionNav from '../components/SectionNav';
 
 export default function Home() {
   useReveal('home');
   return (
     <>
       <SEO
-        title="Гидрополимер — прочистка под перекрытием 2,3 м, Минск"
-        description="Гидродинамическая прочистка ливнёвки в закрытых паркингах, узких дворах и трубопроводов. Комбинированная машина высотой 2,3 м: промывка и откачка за один проезд. Минск и область, +375 44 742-74-47."
+        title="Гидрополимер — прочистка под перекрытием 2,3 м, Минск"
+        description="Гидродинамическая прочистка ливнёвки в закрытых паркингах, узких дворах и трубопроводов. Комбинированная машина высотой 2,3 м: промывка и откачка за один проезд. Минск и область, +375 44 742-74-47."
         path="/"
       />
 
@@ -36,7 +37,7 @@ export default function Home() {
               <div className="hero__specs">
                 <div>
                   <span className="mono">Габарит по высоте</span>
-                  <b>2,30 м</b>
+                  <b>2,30 м</b>
                 </div>
                 <div>
                   <span className="mono">Промывка + откачка</span>
@@ -55,27 +56,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 01 FIT TEST */}
-      <section className="section section--ink" id="gabarit">
-        <div className="wrap">
+      <SectionNav />
+
+      {/* 01 ГАБАРИТ: пин-сцена */}
+      <section className="section section--ink section--flush" id="gabarit">
+        <div className="gauge__head wrap">
           <div className="cols shead">
             <div className="shead__num mono">01 / габарит</div>
-            <h2 className="shead__title reveal">Проверьте свой объект до звонка</h2>
+            <h2 className="shead__title reveal">Перекрытие опускается, машина остаётся</h2>
             <p className="shead__note body-s reveal">
-              Ползунок — высота перекрытия вашего паркинга. Машина либо входит под неё, либо нет: третьего
-              варианта у техники нет.
+              Скролл уменьшает высоту паркинга с 3,60 до 2,60 метра. Машина 2,3 м проходит до конца,
+              типовая техника 3,3 м отваливается на середине. Ваш случай — это ваша цифра.
             </p>
           </div>
-          <FitTest />
         </div>
+        <GaugeScene />
       </section>
 
       {/* 02 OBJECTS */}
-      <section className="section">
+      <section className="section" id="objekty">
         <div className="wrap">
           <div className="cols shead">
             <div className="shead__num mono">02 / объекты</div>
-            <h2 className="shead__title reveal">Три ситуации, где решает не мощность, а габарит</h2>
+            <h2 className="shead__title reveal">Где решает не мощность, а габарит</h2>
             <p className="shead__note body-s reveal">
               Мы не пишем «засор любой сложности». Пишем, что физически проходит, а что нет.
             </p>
@@ -89,11 +92,11 @@ export default function Home() {
               </div>
               <div className="obj__body">
                 <p className="body-s">
-                  Перекрытие 2,3–2,6 м, трапы вдоль проездов, пандус с поворотом. Машина заходит на минус
+                  Перекрытие 2,3–2,6 м, трапы вдоль проездов, пандус с поворотом. Машина заходит на минус
                   первый и минус второй уровень, работает от одного трапа и не блокирует выезд.
                 </p>
                 <ul className="spec-list">
-                  <li><span className="k">Габарит</span><span>2,30 м по высоте</span></li>
+                  <li><span className="k">Габарит</span><span>2,30 м по высоте</span></li>
                   <li><span className="k">Доступ</span><span>один трап или люк на участок</span></li>
                   <li><span className="k">Слив шлама</span><span>в цистерну, без сброса во двор</span></li>
                 </ul>
@@ -165,7 +168,7 @@ export default function Home() {
       </section>
 
       {/* 03 METHOD */}
-      <section className="section section--ink">
+      <section className="section section--ink" id="metod">
         <div className="wrap">
           <div className="cols shead">
             <div className="shead__num mono">03 / метод</div>
@@ -248,7 +251,7 @@ export default function Home() {
       </section>
 
       {/* 04 PROTOCOL */}
-      <section className="section">
+      <section className="section" id="protokol">
         <div className="wrap">
           <div className="cols shead">
             <div className="shead__num mono">04 / протокол</div>

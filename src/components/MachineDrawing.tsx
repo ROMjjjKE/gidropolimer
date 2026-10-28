@@ -55,7 +55,7 @@ export default function MachineDrawing() {
         <line x1="38" y1="400" x2="54" y2="400" stroke={ink} strokeWidth="1.4" />
         <line x1="46" y1="170" x2="252" y2="170" stroke={ink} strokeWidth="0.8" strokeDasharray="3 3" opacity="0.5" />
         <g transform="translate(30,285) rotate(-90)">
-          <text textAnchor="middle" fontFamily="var(--f-mono)" fontSize="13" letterSpacing="2.4" fill={ink}>2,30 м</text>
+          <text textAnchor="middle" fontFamily="var(--f-mono)" fontSize="13" letterSpacing="2.4" fill={ink}>2,30 м</text>
         </g>
 
         <text x="70" y="440" fontFamily="var(--f-mono)" fontSize="9" letterSpacing="1.6" fill={ink} opacity="0.6">ВИД СБОКУ · ПРИНЦИПИАЛЬНАЯ СХЕМА</text>

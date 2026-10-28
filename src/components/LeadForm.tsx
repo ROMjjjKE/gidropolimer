@@ -14,6 +14,7 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
   const [comment, setComment] = useState('');
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const validate = () => {
     const e: Errors = {};
@@ -41,8 +42,12 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
     ].filter(Boolean);
 
     const url = `https://wa.me/375447427447?text=${encodeURIComponent(lines.join('\n'))}`;
-    window.open(url, '_blank', 'noopener');
-    setSent(true);
+    setSending(true);
+    requestAnimationFrame(() => {
+      window.open(url, '_blank', 'noopener');
+      setSending(false);
+      setSent(true);
+    });
   };
 
   if (sent) {
@@ -124,13 +129,15 @@ export default function LeadForm({ compact = false }: { compact?: boolean }) {
             rows={3}
             value={comment}
             onChange={(e) => setComment(e.target.value)}
-            placeholder="Например: ливнёвка в паркинге −2, вода стоит у трапа, метраж около 40 м"
+            placeholder="Например: ливнёвка в паркинге −2, вода стоит у трапа, метраж около 40 м"
           />
         </div>
       )}
 
       <div className="form-foot">
-        <button type="submit" className="btn btn--wide">Отправить заявку в WhatsApp</button>
+        <button type="submit" className="btn btn--wide" disabled={sending} aria-busy={sending}>
+          {sending ? 'Собираем заявку…' : 'Отправить заявку в WhatsApp'}
+        </button>
         <p className="form-small">
           Заявка уходит в WhatsApp с уже заполненными параметрами — вы видите текст до отправки. Или позвоните
           напрямую: <a href="tel:+375447427447" style={{ borderBottom: '1px solid currentColor' }}>+375 44 742-74-47</a>.

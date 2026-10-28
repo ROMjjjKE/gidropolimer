@@ -39,8 +39,8 @@ export function useReveal(key: string) {
             {
               y: 0,
               opacity: 1,
-              duration: 0.95,
-              delay: (i % 4) * 0.04,
+              duration: 0.48,
+              delay: (i % 4) * 0.05,
               ease: 'power3.out',
               scrollTrigger: { trigger: el, start: 'top 92%', once: true },
             }
