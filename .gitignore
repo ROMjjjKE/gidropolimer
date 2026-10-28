@@ -2,6 +2,5 @@ node_modules
 dist
 shots
 /img
-*.mjs
-!vite.config.ts
+/*.mjs
 .DS_Store
