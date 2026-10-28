@@ -87,14 +87,14 @@ export default function Livnevka() {
               <div className="mrow reveal">
                 <span className="mrow__i mono">01</span>
                 <div>
-                  <h4>Осмотр крайних колодцев</h4>
+                  <h3>Осмотр крайних колодцев</h3>
                   <p>Смотрим уровень и характер осадка: песок, ил, строительный смыв. От этого зависит напор.</p>
                 </div>
               </div>
               <div className="mrow reveal">
                 <span className="mrow__i mono">02</span>
                 <div>
-                  <h4>Промывка от нижнего к верхнему</h4>
+                  <h3>Промывка от нижнего к верхнему</h3>
                   <p>Вода идёт по уклону, шлам сгоняется к точке забора, а не размазывается по трубе.</p>
                 </div>
               </div>
@@ -103,14 +103,14 @@ export default function Livnevka() {
               <div className="mrow reveal">
                 <span className="mrow__i mono">03</span>
                 <div>
-                  <h4>Откачка шлама</h4>
+                  <h3>Откачка шлама</h3>
                   <p>Размытый осадок забираем в цистерну. Ничего не остаётся на асфальте и газоне.</p>
                 </div>
               </div>
               <div className="mrow reveal">
                 <span className="mrow__i mono">04</span>
                 <div>
-                  <h4>Проверка прохода</h4>
+                  <h3>Проверка прохода</h3>
                   <p>Контрольный проход воды по участку. Если воды нет — промывка не закончена.</p>
                 </div>
               </div>

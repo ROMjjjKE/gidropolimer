@@ -132,14 +132,8 @@ export default function FitTest() {
               key={p}
               type="button"
               onClick={() => setH(p)}
-              className="mono"
-              style={{
-                background: 'transparent',
-                color: h === p ? '#ede7dc' : '#b9b5a8',
-                border: `1px solid ${h === p ? '#c9471d' : '#4a4d44'}`,
-                padding: '8px 10px',
-                letterSpacing: '.1em',
-              }}
+              className={`mono chip${h === p ? ' chip--on' : ''}`}
+              aria-pressed={h === p}
             >
               {fmt(p)} м
             </button>
